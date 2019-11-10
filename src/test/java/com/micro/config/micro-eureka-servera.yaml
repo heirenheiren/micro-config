@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: micro-eureka-servera
+server: 
+  port: 8081
+eureka: 
+  instance: 
+    appname: ${spring.application.name}
+    prefre-ip-address: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl: 
+      defaultZone: http://127.0.0.1:8082/eureka/,http://127.0.0.1:8083/eureka/
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  server:
+    enable-self-preservation: true       # 自我保护模式（缺省为打开）
+    eviction-interval-timer-in-ms: 60000 # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+logger:
+  config: 
+    classpath: logback.xml
+  path: /Users/zhou/Desktop

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: micro-config
+  profiles:
+    active: native #启用本地配置文件
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs/ #配置文件扫描目录
+server: 
+  port: 8080
+eureka: 
+  instance: 
+    appname: ${spring.application.name}
+    prefre-ip-address: true
+  client: 
+    serviceUrl: 
+      defaultZone: http://127.0.0.1:8081/eureka/
+logger:
+  config: 
+    classpath: logback.xml
+  path: /Users/zhou/Desktop
